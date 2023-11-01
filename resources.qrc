@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>assets/380081215_734326761799473_8967603309557565287_n.png</file>
+        <file>assets/380535453_624383286266254_2716347800353175042_n-removebg-preview.png</file>
+        <file>assets/earth (2).png</file>
+        <file>assets/image_2023-10-05_004112946-removebg-preview.png</file>
+        <file>assets/image_2023-10-05_004636688-removebg-preview.png</file>
+        <file>assets/image_2023-10-05_004748227-removebg-preview (1).png</file>
+        <file>assets/image_2023-10-05_004909935-removebg-preview.png</file>
+        <file>assets/image_2023-10-05_005051266-removebg-preview.png</file>
+        <file>assets/image_2023-10-05_005950418-removebg-preview.png</file>
+        <file>assets/image_2023-10-05_010035082-removebg-preview.png</file>
+        <file>assets/logooo.png</file>
+        <file>assets/user (2).png</file>
+        <file>MaterialDark.qss</file>
+    </qresource>
+</RCC>
