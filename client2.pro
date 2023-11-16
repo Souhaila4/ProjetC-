@@ -1,6 +1,6 @@
-QT       += core gui sql
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += core gui sql network widgets charts printsupport
 
+#QT       +=printsupport serialport texttospeech
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -18,14 +18,18 @@ SOURCES += \
     clientcontroller.cpp \
     cliententity.cpp \
     connection.cpp \
+    fediliter.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    reclamationentity.cpp
 
 HEADERS += \
     clientcontroller.h \
     cliententity.h \
     connection.h \
-    mainwindow.h
+    fediliter.h \
+    mainwindow.h \
+    reclamationentity.h
 
 FORMS += \
     clientcontroller.ui \
@@ -39,12 +43,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     resources.qrc \
     resources.qrc
-
-
-
-
-
-
-
-
 

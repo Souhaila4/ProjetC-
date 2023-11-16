@@ -7,15 +7,17 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+
     Connection *db = new Connection();
-    ClientController c;
     bool isOpen = db->createConnection();
     if(isOpen){
         qDebug() << "DB open";
     } else {
         qDebug() << "DB NOT open";
     }
+
+    MainWindow w;
+    ClientController c;
     c.show();
     return a.exec();
 }

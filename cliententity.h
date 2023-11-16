@@ -2,41 +2,70 @@
 #define CLIENTENTITY_H
 #include <QString>
 #include <QDate>
-#include<QSqlQuery>
+#include <QSqlQuery>
 #include <QSqlDatabase>
-#include<QSqlQueryModel>
+#include <QSqlQueryModel>
+#include <QDialog>
+#include <QChart>
+#include <QPainter>
 
 
 class CLIENT
 {
-    QDate DATE_INSCIPTION;
-    QString NOM,COURREIL,ADRESSE,PT_VENTE,PT_LOCATION;
+private:
     int ID_CLIENT;
+    int NUMEROCLIENT;
+    QDate DATE_INSCIPTION;
+    QString NOM, COURRIEL, ADRESSE, PT_VENTE;
+
 public:
+
     CLIENT();
-    CLIENT(int,QString,QString,QString,QDate,QString,QString);
-    CLIENT(QString,QString,QString,QDate,QString,QString);
-    QString getNOM(){return NOM;}
-    QString getCOURREIL(){return COURREIL;}
-    QString getADRESSE(){return ADRESSE;}
-    QDate getDATE_INSCIPTION(){return DATE_INSCIPTION;}
-    QString getPT_VENTE(){return PT_VENTE;}
-    QString getPT_LOCATION(){return PT_LOCATION;}
-    int getID_CLIENT(){return ID_CLIENT;}
+    CLIENT(int, QString, QString, QString, QDate, QString, int);
+    CLIENT(QString, QString, QString, QDate, QString, int);
 
-    void setNOM(QString n){NOM=n;}
-    void setCOURRIEL(QString c){COURREIL=c;}
-    void setADRESSE(QString a){ADRESSE=a;}
-    void setDATE_INSCIPTION(QDate d){DATE_INSCIPTION=d;}
-    void setPT_VENTE(QString ptv){PT_VENTE=ptv;}
-    void setPT_LOCATION(QString ptl){PT_LOCATION=ptl;}
+    // Getters
+    QString getNOM() const;
+    QString getCOURRIEL() const;
+    QString getADRESSE() const;
+    QDate getDATE_INSCIPTION() const;
+    QString getPT_VENTE() const;
+    int getID_CLIENT() const;
+    int getNUMEROCLIENT() const;
 
-    void setID_CLIENT(int ID_CLIENT){this->ID_CLIENT=ID_CLIENT;}
+    // Setters
+    void setNOM(const QString &n);
+    void setCOURRIEL(const QString &c);
+    void setADRESSE(const QString &a);
+    void setDATE_INSCIPTION(const QDate &d);
+    void setPT_VENTE(const QString &ptv);
+    void setID_CLIENT(int idClient);
+    void setNUMEROCLIENT(int numeroClient);
 
+    // CRUD operations
     bool ajouter();
     bool modifier();
-    QSqlQueryModel * afficher();
+    QSqlQueryModel *afficher();
     bool supprimer(int);
+
+    // Search and sort
+    QSqlQueryModel* rechercherClient( QString critere);
+    void findById( QString critere);
+    QStringList rechercherClients();
+    QSqlQueryModel* trierClient(QString critere);
+
+    // Validation and existence checks
+    bool isEmailValid(const QString &email);
+    bool clientExists(int id);
+
+    // Statistics
+    static int statistique(QString);
+    int obtenirPointsVenteParID(int idClient);
+
+    // Custom paint event
 };
+
+// Global function to fetch all clients
+QSqlQueryModel *afficherClients();
 
 #endif // CLIENTENTITY_H
